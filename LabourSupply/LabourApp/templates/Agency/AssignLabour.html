@@ -1,0 +1,93 @@
+{% extends 'Agency/AgencyHome.html' %}
+{% block content %}
+<head>
+	
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="static/css/montserrat-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="static/css/agreg.css"/>
+    <link rel="stylesheet" href="static/css/table/table6.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  
+   
+</head>
+<body style="background-image:url('static/images/bg3.jpg');background-repeat: no-repeat;background-size: cover;" >
+    <br><br><br><br><br><br>
+    
+
+    <div class="container-fluid bg-gradient p-5">
+      <center><h3 style="font-family :Lucida Handwriting;">Client Requirement</h3></center><br>
+      {% for i in req %} 
+      <div class="row m-auto text-center w-75">
+       
+       
+        
+       
+        <div class="col-md-4" >
+          <img src="static/upload/{{i.1}}" class="img-radius" width="300px" height="300px" alt="User-Profile-Image">
+        </div>
+       
+        <div class="col-md-6" >
+          <ul style="list-style-type:none;text-align: justify;font-size:18px;">
+          <h3 style="color:rgb(211, 211, 11)">{{i.11}}</h3>
+          <b> Name: </b>{{i.3}}<br>
+          <b>Phone Number: </b>{{i.4}}<br>
+          <b>Requirement: </b>{{i.5}}<br>
+          <b>WorkSite: </b>{{i.6}}<br>
+          <b>No of Workers: </b>{{i.7}}<br>
+          <b>Starting date: </b>{{i.8}}<br>
+          <b>Ending Date: </b>{{i.9}}<br>
+          <b>No of Days: </b>{{i.10}}<br>
+          
+
+          
+        </ul>
+      <a href="/ReqAccept?aid={{i.0}}"><button type="submit" class="btn btn-success">Accept</button></a>
+      <a href="/ReqReject?aid={{i.0}}"><button type="submit" class="btn btn-danger">Reject</button></a>
+      </div>
+      <div class="col-md-2" >
+        <div id="p" style="display:none">Assign</div>
+        <a style="font-size:25px;" href="/AssignLabour1?aid={{i.0}}" onmouseover="msg()" onmouseleave="msg1()" >
+          <i class="bi bi-plus-circle-fill"></i>
+          
+        </a><br><br><br>
+        <!-- <div id="p" style="display:none"><p>Assign </p></div><br> -->
+        <a style="font-size:25px;" href="/LabAssignDetails?aid={{i.0}}&bid={{i.2}}&cid={{i.5}}&{{i.8}}"onmouseover="msg2()" onmouseleave="msg3()">
+          <i class="bi bi-briefcase-fill"></i>
+        </a>
+        <div id="p1" style="display:none">
+          Assigned Date
+        </div>
+      </div>
+      
+   
+     
+     </div>
+     <hr>
+     {% endfor %}
+     </div>
+    </body>
+    <script>
+       function msg()
+    {
+        document.getElementById('p').style="display:block;background-color:rgb(231, 226, 226);";
+    }
+    function msg1()
+    {
+        document.getElementById('p').style="display:none;";
+    }
+    function msg2()
+    {
+        document.getElementById('p1').style="display:block;background-color:rgb(231, 226, 226);";
+    }
+    function msg3()
+    {
+        document.getElementById('p1').style="display:none;";
+    }
+    </script>
+    
+{% endblock %}

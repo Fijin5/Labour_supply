@@ -1,0 +1,105 @@
+{% extends 'Agency/AgencyHome.html' %}
+{% block content %}
+<head>
+	
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="static/css/montserrat-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="static/css/agreg.css"/>
+    <link rel="stylesheet" href="static/css/search.css"/>
+    
+    <link rel="stylesheet" href="static/css/table.css"/>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  
+   
+</head>
+<body style="background-image:url('static/images/bg3.jpg');background-repeat: no-repeat;background-size: cover;" >
+  <div class="search">
+    <i> </i>
+    <div class="s-bar">
+       <form method="post">
+        {% csrf_token %}
+      <!-- <input type="text" value="Search Template" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Template';}"> -->
+      <select name="lab"  style="color: rgb(15, 14, 14);
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);"value="Search Template" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Template';}">
+        <option>search Staff</option>
+        {% for i in data %}
+        <option value="{{i.2}}">{{i.1}}</option>
+        {% endfor %}
+    </select>
+      <input type="submit" name="site" value="Search"/>
+      </form>
+    </div>
+    </div>
+  <!--search end here-->	
+  </div>	
+       
+  {% if staff %}
+    <div class="container">
+      <div class="table-responsive">
+       
+        
+
+          <table class="table table-striped custom-table" style="width:1000px;">
+            <thead>
+              <tr>
+                <th scope="col">
+                  <label class="control control--checkbox">
+                    <!-- <input type="checkbox"  class="js-check-all"/>
+                    <div class="control__indicator"></div> -->
+                  </label>
+                </th>
+                
+                <th scope="col">Labourer</th>
+                <th scope="col">Date of Work</th>
+                <th scope="col">Type of Work</th>
+                <th scope="col">Site</th>
+                
+                <th scope="col"></th>
+              </tr>
+            </thead>
+           {% for i in staff %}
+          <tbody>
+            <tr scope="row">
+              <td>
+                <label class="control control--checkbox">
+                <!-- <input type="checkbox" />
+                <div class="control__indicator"></div> -->
+                </label>
+              </td>
+              <td>
+                {{i.2}},{{i.3}}
+              </td>
+              <td class="pl-0">
+               
+
+                  {{i.4}}
+                </div>
+              </td>
+              <td>
+                {{i.0}}
+                <!-- <small class="d-block">Far far away, behind the word mountains</small> -->
+              </td>
+              <td>{{i.1}}</td>
+              
+            
+            </tr>
+            </tbody>
+         {% endfor %}
+        </table>
+      
+       
+
+
+    </div>
+  </div>
+ 
+  {%endif%}
+  
+</body>
+<br><br><br><br><br><br><br><br>
+{% endblock %}

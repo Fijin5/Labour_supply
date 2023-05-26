@@ -1,0 +1,94 @@
+{% extends 'Agency/AgencyHome.html' %}
+{% block content %}
+<head>
+	
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="static/css/montserrat-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="static/css/attend/style.css"/>
+	<link rel="stylesheet" href="static/css/search.css"/>
+    <link rel="stylesheet" href="static/css/check.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  
+   
+</head>
+<body style="background-image:url('static/images/bg3.jpg');background-repeat: no-repeat;background-size: cover;" ><br><br><br><br><br>
+	<div style="font-size:xx-large;margin-left:20px;">
+		<a href="{{request.META.HTTP_REFERER}}"><i  class="bi bi-arrow-left-square-fill"></i></a>
+		</div>
+	<div class="search">
+		<!-- <i> </i> -->
+		<div class="s-bar">
+		   <form method="post">
+			{% csrf_token %}
+		  <!-- <input type="text" value="Search Template" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Template';}"> -->
+		  <!-- <select name="sit" style="color: rgb(15, 14, 14);
+		  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);" value="Search Template" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Template';}">
+			<option>search worksite</option>
+			{% for i in data %}
+			<option value="{{i.4}}">{{i.4}}</option>
+			{% endfor %}
+		</select> -->
+		<input type="date" name="dat" value="Select Labour"/>
+		  <input type="submit" name="check" value="Select Labour"/>
+		  </form>
+		</div>
+		</div>
+
+		<br><br>	
+  <div class="center-container">
+		<div class="main">
+			<h1 class="w3layouts_head">Labour Assign</h1>
+				<div class="w3layouts_main_grid">
+					<form action="#" method="post" class="w3_form_post">
+						{% csrf_token %}	
+						
+						<div class="agileits_w3layouts_main_grid w3ls_main_grid">
+							<span class="agileinfo_grid">
+								<label>Date </label>
+								<div class="agileits_w3layouts_main_gridl">
+									<input class="date" id="datepicker" name="dat" type="date" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required="">
+								</div>
+								
+									<div class="clear"> </div>
+							</span>
+						</div>
+						<div class="w3_agileits_main_grid w3l_main_grid">
+              
+              <span class="agileits_grid"> <label>Labourer</label></span>
+              <br>
+              {% for i in lab %}
+							<span class="agileits_grid">
+								<input type="checkbox" name="lab"  value="{{i.2}}">{{i.1}},{{i.2}}<h6>{{msg}}</h6>
+							</span>
+							<h6>{{msg}}</h6>
+              {% endfor %}
+						</div>
+						
+						
+					
+						
+					<div class="w3_main_grid">
+						<div class="w3_main_grid_right">
+							<input type="submit" value="Submit" name="assign">
+						</div>
+					</div>
+				</form>
+			</div>
+		<!-- Calendar -->
+			<link rel="stylesheet" href="css/jquery-ui.css" />
+				<script src="js/jquery-ui.js"></script>
+					<script>
+						$(function() {
+							$( "#datepicker" ).datepicker();
+						});
+					</script>
+	
+		</div>
+	</div>
+	
+</body>
+{% endblock %}

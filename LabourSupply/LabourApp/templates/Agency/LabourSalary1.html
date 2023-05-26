@@ -1,0 +1,80 @@
+{% extends 'Agency/AgencyHome.html' %}
+{% block content %}
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="static/css/table/table3/table3.css">
+    <link rel="stylesheet" href="static/css/attend/style.css"/>
+    <title>LabourSalary</title>
+  </head>
+  <body style="background-image:url('static/images/bg3.jpg');background-repeat: no-repeat;background-size: cover;">
+ 
+  
+
+  <div class="content">
+    
+    <div class="container">
+     <center> <h2 style="font-size:50px" class="mb-5">Salary Assignment</h2></center>
+      <div class="row">
+        <div class="col-md-3"></div>
+      {% if req %}
+      <div class="table-responsive col-md-7" >
+
+        <table class="table custom-table">
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Work</th>
+              <th scope="col">Labourer</th>
+             
+            </tr>
+          </thead>
+          <tbody style="font-weight:600;">
+            {% for i in req %}
+            <tr >
+              <!-- <th scope="row">
+                <label class="control control--checkbox">
+                  <input type="checkbox"/>
+                  <div class="control__indicator"></div>
+                </label>
+              </th> -->
+              <td>
+               {{i.1}} 
+              </td>
+              <td>{{i.2}}</td>
+              <td>{{i.3}}</td>
+              <td><a href="/LabourSalary2?aid={{i.0}}& bid={{i.1}}&cid={{i.2}}"><button type="submit" class="btn btn-warning" onclick="msg()">Select</button></a></td>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+    <marquee behavior="scroll" direction="right" scrollamount="5"><h1 style="font-size:20px;font-weight: 500;color:red;">No Details</h1></marquee> 
+    {% endif %}
+    </div>
+    
+    </div>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <br><br><br><br><br><br><br><br><br>
+  </body>
+
+
+
+{% endblock %}

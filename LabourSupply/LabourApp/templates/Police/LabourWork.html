@@ -1,0 +1,96 @@
+{% extends 'Police/POlicehome.html' %}
+{% block content %}
+
+<head>
+	
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="static/css/montserrat-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="static/css/table/table6.css"/>
+    <link rel="stylesheet" href="static/css/table.css"/>
+    <link rel="stylesheet" href="static/css/search.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  
+   
+</head>
+<body style="background-image:url('static/images/bg3.jpg');background-repeat: no-repeat;background-size: cover;" >
+  
+<br><br><br><br><br><br>
+
+<div class="container">
+    
+  <div class="row">
+     
+          <!-- <div class="search"> -->
+              <i> </i>
+            <div class="s-bar"style="width:50%;
+              margin: 0 auto;
+              padding: 0.5em 0em 0.5em 0em;">
+                 <form method="post">
+                  {% csrf_token %}
+                <!-- <input type="text" value="Search Template" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Template';}"> -->
+                <select  style="color: rgb(15, 14, 14);
+                text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);" name="lab" value="Search Template" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Template';}">
+                  <option>search Labourer</option>
+                  {% for i in data %}
+                  <option value="{{i.2}}">{{i.1}},{{i.2}}</option>
+                  {% endfor %}
+              </select>
+                <input type="submit" name="labr" value="Search"/>
+                </form>
+            </div>
+    </div>
+    <br><br><br><br><br>
+<div class="row">
+  <div  class="col-lg-2"></div>
+  <br><br>
+  {% if track %}
+<div class="table-responsive" style="color:blue">
+
+  <table class="table table-striped custom-table">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Date Of  Work</th>
+        <th scope="col">Type of Work</th>
+        <th scope="col">Work Place</th>
+      </tr>
+    </thead>
+    {%for i in track %}
+  <tbody>
+    <tr scope="row">
+      <td></td>
+      <td>
+        {{i.3}}
+      </td>
+      <td>
+        {{i.4}}
+      </td>
+      <td>
+        {{i.2}}
+        <!-- <small class="d-block">Far far away, behind the word mountains</small> -->
+      </td>       
+    </tr>
+    </tbody>
+    {% endfor %}
+   
+</table>
+{% else %}
+<marquee><h3>No details</h3></marquee>
+{% endif %}
+</div>
+
+</div>
+
+</div>
+            
+   
+    
+  </body>
+<br><br><br><br><br><br>
+
+{% endblock %}

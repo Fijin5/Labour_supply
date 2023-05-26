@@ -1,0 +1,120 @@
+{% extends 'Police/PoliceHome.html' %}
+{% block content %}
+<head>
+	
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="static/css/montserrat-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="static/css/agreg.css"/>
+    <link rel="stylesheet" href="static/css/postre.css"/>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  
+   
+</head>
+<body class="form-v10" style="background-image:url('static/images/bg3.jpg');background-repeat: no-repeat;background-size: cover;">
+	<div class="page-content">
+		<div class="form-v10-content">
+			<form method="post">
+                {% csrf_token %}
+                <h3>Requirement Form</h3>
+                <div class="form-group">
+                    <div class="form-wrapper">
+                        <label for=""> choose the Agency:</label>
+                        <div class="form-holder">
+                            <!-- <i class="zmdi zmdi-account-o"></i> -->
+                            <select name="age"  class="form-control" >
+                                {% for i in ag %}
+                                <option value="{{i.14}}">{{i.1}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-wrapper">
+                        <label for="">Username:</label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            <input type="text" name="name" value="{{user.1}}" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-wrapper">
+                        <label for="">Usercode</label>
+                        <div class="form-holder">
+                            
+                            <input type="text" name="usercode" value="{{user.5}}" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-wrapper">
+                        <label for="">City</label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-lock-outline"></i>
+                            <input type="text" name="city"   class="form-control" >
+                            
+                        </div>
+                    </div>
+                    <div class="form-wrapper">
+                        <label for="">District</label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-lock-outline"></i>
+                            <input type="text" name="district"   class="form-control" >
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-wrapper">
+                        <label for="">Requirements</label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-lock-outline"></i>
+                            <textarea class="form-control" name="require" ></textarea>
+                            
+                        </div>
+                    </div>
+                    <div class="form-wrapper">
+                        <label for="">Place of worksite</label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-lock-outline"></i>
+                            <input type="text" name="worksite"   class="form-control" >
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="form-wrapper">
+                        <label for="">No.of Workers needed</label>
+                        <div class="form-holder">
+                            <input type="number" name="workers"   class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-wrapper">
+                        <label for="">From date</label>
+                        <div class="form-holder">
+                            <input type="date" name="from_date"  class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-wrapper">
+                        <label for="">To date</label>
+                        <div class="form-holder">
+                            <input type="date" name="to_date"  class="form-control">
+                        </div>
+                    </div>
+                </div>
+                
+                    <div class="button-holder">
+                        <button>Register Now</button>
+                    </div>
+                    
+                </div>
+            </form>
+		</div>
+	</div>
+
+		
+		
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'Admin/AdminHome.html' %}
+{% block content %}
+<head>
+	
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="static/css/montserrat-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="static/css/table/table5.css"/>
+    <link href="static/css/search.css" rel="stylesheet" />
+    <link href="static/css/profile.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  
+   
+</head>
+<body style="background-image:url('static/images/bg3.jpg');background-repeat: no-repeat;background-size: cover;">
+  <br><br><br><br><br><br>
+  <div id="mainCoantiner">
+    <!--dust particel-->
+    <div class="margin-body">
+    
+    <div>
+      <div class="starsec"></div>
+      <div class="starthird"></div>
+      <div class="starfourth"></div>
+      <div class="starfifth"></div>
+    </div>
+    <!--Dust particle end--->
+  
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <div class="wpb_text_column wpb_content_element ">
+            <div class="wpb_wrapper">
+              <div class="title-h1 text-center"><span><span class="light">Labours</span> Details</span></div>
+            </div>
+          </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      {% for i in lab%}
+      <div class="col-sm-3 col-md-3 pricing-column-wrapper">
+           <div class="pricing-column">
+                <div class="pricing-price-row">
+                  <div class="pricing-price-wrapper">
+                    <div class="pricing-price">
+                      <div  class="pricing-cost"><img src="static/upload/{{i.12}}" class="rounded-circle" width="1100" height="200"></div>
+                      <!-- <div class="time">Per Month</div> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="pricing-row-title">
+                  <div class="pricing_row_title">{{i.1}}</div>
+                </div>
+                <!-- <figure class="pricing-row">Photo sharing school</figure>
+                <figure class="pricing-row"><span>Drop out ramen hustle</span></figure>
+                <figure class="pricing-row strike">Crush revenue traction</figure>
+                <figure class="pricing-row strike">Crush revenue traction</figure>
+                <figure class="pricing-row strike">User base minimum viable</figure>
+                <figure class="pricing-row strike">Lorem ipsum dolor</figure> -->
+                <div class="pricing-footer">
+                  <div class="gem-button-container gem-button-position-center"><a href="/SearchLabour2?aid={{i.0}}" class="gem-button gem-green">Details</a></div>
+                </div>
+              </div>
+      </div>
+      {% endfor %}
+      
+    </div>
+  
+   </div>
+  </div>
+
+  </body>
+{% endblock %}

@@ -1,0 +1,848 @@
+{% extends 'home.html' %}
+{% block content %}
+
+<head>
+	<meta charset="utf-8">
+
+	<title>
+		Disable/enable the form submit button
+	</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
+	<style>
+		h1 {
+			color: green;
+			margin-left: 12px;
+		}
+
+		.checkbox-round {
+			width: 1.0em;
+			height: 1.0em;
+			background-color: white;
+			border-radius: 50%;
+			vertical-align: middle;
+			border: 1px solid #ddd;
+			-webkit-appearance: none;
+			outline: none;
+			cursor: pointer;
+			padding-right: 2px;
+			margin-left: 8px;
+		}
+
+		.checkbox-round:checked {
+			background-color: green;
+		}
+
+		#submit-button {
+			margin-top: 12px;
+			margin-left: 12px;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>GeeksforGeeks</h1>
+
+	<input class="checkbox-round" id="enabled"
+		name="enabled" type="checkbox" value="y" />
+		I accept the terms and
+		conditionof GeeksforGeeks<br>
+
+	<input id="submit-button" disabled="disabled"
+		name="Submit" type="submit" value="Accept" />
+		
+	<script>
+		$('#enabled').click(function () {
+			if ($('#submit-button').is(':disabled')) {
+				$('#submit-button').removeAttr('disabled');
+			} else {
+				$('#submit-button').attr('disabled', 'disabled');
+			}
+		});
+	</script>
+</body>
+
+{% endblock %}
+
+
+
+
+
+{% extends 'Admin/AdminHome.html' %}
+{% block content %}
+<head>
+	
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="static/css/montserrat-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="static/css/table.css"/>
+    <link rel="stylesheet" href="static/css/search.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>  
+</head>
+<body style="background-image:url('static/images/bg2.jpg');background-repeat: no-repeat;background-size: cover;">
+    <div class="search">
+        <i> </i>
+        <div class="s-bar">
+           <form method="post">
+            {% csrf_token %}
+          <!-- <input type="text" value="Search Template" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Template';}"> -->
+          <select  style="color: rgb(15, 14, 14); text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);"  name="agen" value="Search Template" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Template';}">
+            <option>search worksite</option>
+            {% for i in agen %}
+            <option value="{{i.14}}">{{i.1}}</option>
+            {% endfor %}
+        </select>
+          <input type="submit" name="ag" value="Search"/>
+          </form>
+        </div>
+        </div>
+      <!--search end here-->	
+      </div>
+      {% if labpay %}
+      <div class="container">
+        <div class="table-responsive">
+
+        
+          <table class="table table-striped custom-table">
+            <thead>
+              <tr>
+                <th scope="col">
+                  <label class="control control--checkbox">
+                  
+                  </label>
+                </th>
+                <th scope="col">Salary Date</th>
+                <th scope="col">Labourer</th>
+                <th scope="col">Labourer Code</th>
+                <th scope="col">Work</th> 
+              </tr>
+            </thead>
+            {% for i in labpay %}
+          <tbody>
+            <tr scope="row">
+              <td>
+                <label class="control control--checkbox">
+               
+                </label>
+              </td>
+              <td>
+                {{i.2}}
+              </td>
+              <td>
+                {{i.8}}
+              </td>
+              <td>
+                {{i.1}}
+              </td>
+              <td>
+                {{i.4}}
+               
+              </td>
+              <td class="pl-0">
+                <div class="d-flex align-items-center">
+                  <label class="custom-control ios-switch">
+                  <!-- <input type="checkbox" class="ios-switch-control-input" checked=""> -->
+                  <!-- <span class="ios-switch-control-indicator"></span> -->
+                  </label>
+
+                  <!-- <a href="#">{{i.2}} -</a> -->
+                </div>
+              </td>
+              
+              
+                          
+            </tr>
+            </tbody>
+            {% endfor %}
+          
+        </table>
+       
+       
+       
+       
+
+
+    </div>
+    </div>
+</div>
+</div>
+{% endif %}
+</body>
+
+<br><br><br><br><br><br>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link type="text/css" rel="stylesheet" href="http://dinus.org/assets/mail/mailtip.css"/>
+<script type="text/javascript" src="http://dinus.org/assets/mail/jquery.mailtip.js"></script>
+<section>
+<div class="container">
+    <div class="row">
+        <center><h2>Awesome Form Complaints Or Suggestions Via E-mail</h2></center>
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-md-9 row" style="padding:0px;margin-bottom:10px;">
+                            
+                            <!-- <div class="col-md-2"> -->
+                                <img src="http://dinus.org/img/fakultas/FIK/cs/cs.svg">
+                                <div style="margin-left:30px;">
+                                    <img src="static/upload/{{user.7}}" width="70px" height="70px" class="img-circle" style="border:3px solid #052C52;">
+                                </div>
+                            </div>
+                            <div class="col-md-10">
+                                <hr>
+                                <p style="padding-left:55px;font-size:1.3em;"><strong>{{user.1}}</strong></p>
+                                
+                            </div>
+                            
+                            
+                        </div>
+
+                        <form method="post" >
+                          {% csrf_token %}
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <input type="email" class="form-control" value="{{user.4}}"  id="mailtip2" placeholder="Your e-mail">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input class="form-control" type="text" name="sub" placeholder="Subject">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <textarea class="form-control" rows="4" name="comp" placeholder="Message text . . ."></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button class="btn btn-danger btn-sm" style="width: 100%;"><i class="fa fa-envelope-o" style="padding-right: 5px;"></i> Send</button>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </form>
+                    </div>
+                
+
+           
+
+        </div>
+    
+
+</section>
+<script>
+  $(function (){
+  var info = $('.info');
+  $('#mailtip2').mailtip({
+  onselected: function (mail){
+  info.text('you choosed email: ' + mail)
+  }
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section style="background-color: #d94125;">
+  <div class="container my-5 py-5 text-dark">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-6">
+        <div class="card">
+          <div class="card-body p-4">
+            <div class="d-flex flex-start w-100">
+              <img class="rounded-circle shadow-1-strong me-3"
+                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(21).webp" alt="avatar" width="65"
+                height="65" />
+              <div class="w-100">
+                <h5>Add a comment</h5>
+                <ul class="rating mb-3" data-mdb-toggle="rating">
+                  <li>
+                    <i class="far fa-star fa-sm text-danger" title="Bad"></i>
+                  </li>
+                  <li>
+                    <i class="far fa-star fa-sm text-danger" title="Poor"></i>
+                  </li>
+                  <li>
+                    <i class="far fa-star fa-sm text-danger" title="OK"></i>
+                  </li>
+                  <li>
+                    <i class="far fa-star fa-sm text-danger" title="Good"></i>
+                  </li>
+                  <li>
+                    <i class="far fa-star fa-sm text-danger" title="Excellent"></i>
+                  </li>
+                </ul>
+                <div class="form-outline">
+                  <textarea class="form-control" id="textAreaExample" rows="4"></textarea>
+                  <label class="form-label" for="textAreaExample">What is your view?</label>
+                </div>
+                <div class="d-flex justify-content-between mt-3">
+                  <button type="button" class="btn btn-success">Danger</button>
+                  <button type="button" class="btn btn-danger">
+                    Send <i class="fas fa-long-arrow-alt-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Adtracke -->
+
+<div class="container">
+    
+  <div class="row">
+     
+          <!-- <div class="search"> -->
+              <i> </i>
+              <div class="s-bar"style="width:50%;
+              margin: 0 auto;
+              padding: 0.5em 0em 0.5em 0em;">
+                 <form method="post">
+                  {% csrf_token %}
+                <!-- <input type="text" value="Search Template" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Template';}"> -->
+                <select  style="color: rgb(15, 14, 14);
+                text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);" name="lab" value="Search Template" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Template';}">
+                  <option>search Labourer</option>
+                  {% for i in data %}
+                  <option value="{{i.2}}">{{i.1}},{{i.2}}</option>
+                  {% endfor %}
+              </select>
+                <input type="submit" name="labr" value="Search"/>
+                </form>
+              </div>
+              </div>
+              </div>
+              
+            <!--search end here-->	
+            <!-- </div> -->
+      <!-- </div> -->
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+{% if track %}
+
+<div class="container-fluid bg-gradient p-5">
+    <div class="row m-auto text-center w-75">
+      {% for i in track %}
+     
+
+      <div class="col-3 princing-item red">
+      
+        <div class="pricing-divider " >
+            <h3 class="text-light">Work History</h3>
+          <h6 class="my-0 display-4 text-light font-weight-normal mb-3"><span class="h3"></span> <span class="h5"></span></h6>
+           <svg class='pricing-divider-img' enable-background='new 0 0 300 100' height='100px' id='Layer_1' preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px' xml:space='preserve' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' y='0px'>
+        <path class='deco-layer deco-layer--1' d='M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729
+c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z' fill='#FFFFFF' opacity='0.6'></path>
+        <path class='deco-layer deco-layer--2' d='M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729
+c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z' fill='#FFFFFF' opacity='0.6'></path>
+        <path class='deco-layer deco-layer--3' d='M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716
+H42.401L43.415,98.342z' fill='#FFFFFF' opacity='0.7'></path>
+        <path class='deco-layer deco-layer--4' d='M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428
+c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z' fill='#FFFFFF'></path>
+      </svg>
+        </div>
+        <div class="card-body bg-white mt-0 shadow">
+          <ul class="list-unstyled mb-5 position-relative">
+            <li><b>Labourer Name: </b>{{i.1}}</li>
+            <li><b>Date of Work: </b>{{i.3}}</li>
+            <li><b>WorkSite: </b>{{i.2}}</li>
+            <li><b>Work: </b>{{i.4}}</li>
+          </ul>
+          <!-- <button type="button" class="btn btn-lg btn-block  btn-custom ">Sign up for free</button> -->
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+    </div>
+ 
+{% endif %}
+  
+
+
+
+
+
+<!-- Labour payment -->
+
+<div class="container">
+    
+  <div class="row">
+     
+          <!-- <div class="search"> -->
+              <i> </i>
+              <div class="s-bar"style="width:50%;
+              margin: 0 auto;
+              padding: 0.5em 0em 0.5em 0em;">
+                 <form method="post">
+                  {% csrf_token %}
+                <!-- <input type="text" value="Search Template" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Template';}"> -->
+                <select  style="color: rgb(15, 14, 14);
+                text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);" name="agen" value="Search Template" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Template';}">
+                  <option>search Agency</option>
+                  {% for i in agen %}
+                  <option value="{{i.14}}">{{i.1}}</option>
+                  {% endfor %}
+              </select>
+                <input type="submit" name="ag" value="Search"/>
+                </form>
+              </div>
+              </div>
+              </div>
+              
+            <!--search end here-->	
+            <!-- </div> -->
+      <!-- </div> -->
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<b>hii</b>
+
+<div class="container-fluid bg-gradient p-5">
+
+    <div class="row m-auto text-center w-75">
+      {% for i in labpay %}
+      
+
+      <div class="col-4 princing-item red">
+        <div class="pricing-divider ">
+            <h3 class="text-light">Labour Payment</h3>
+          <h6 class="my-0 display-4 text-light font-weight-normal mb-3"><span class="h3"></span> {{i.1}} <span class="h5"></span></h6>
+           <svg class='pricing-divider-img' enable-background='new 0 0 300 100' height='100px' id='Layer_1' preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px' xml:space='preserve' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' y='0px'>
+        <path class='deco-layer deco-layer--1' d='M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729
+c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z' fill='#FFFFFF' opacity='0.6'></path>
+        <path class='deco-layer deco-layer--2' d='M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729
+c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z' fill='#FFFFFF' opacity='0.6'></path>
+        <path class='deco-layer deco-layer--3' d='M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716
+H42.401L43.415,98.342z' fill='#FFFFFF' opacity='0.7'></path>
+        <path class='deco-layer deco-layer--4' d='M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428
+c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z' fill='#FFFFFF'></path>
+      </svg>
+        </div>
+        <div class="card-body bg-white mt-0 shadow">
+          <ul class="list-unstyled mb-5 position-relative">
+            <li><b>Salary Date: </b>{{i.2}}</li>
+            <li><b>Labourer Name: </b>{{i.8}}</li>
+           
+            <li><b>Work: </b>{{i.4}}</li>
+            <li><b>Salary: </b>{{i.5}}</li>
+
+          </ul>
+          <!-- <button type="button" class="btn btn-lg btn-block  btn-custom ">Sign up for free</button> -->
+        </div>
+      </div>
+      {% endfor %}
+     
+    </div>
+   
+  </div>
+  
+  <!--admin User Request  -->
+    <!-- <section>
+        <div class="container" >
+          <div class="row d-flex justify-content-center align-items-center h-100">
+           
+            <div class="col-md-12 col-xl-4">
+      
+              <div class="card" style="border-radius: 15px;background-color:rgb(218, 222, 170);">
+                <div class="card-body text-center">
+                  
+                  <h4 class="mb-2 h5">{{i.1}}</h4>
+                  <p>{{i.2}}<br> 
+                   
+                    <span style="color:blue;font: 1em sans-serif;">WorkSite:{{i.4}}</span></p>
+  
+                  
+                  
+                  <div class="d-flex justify-content-between text-center mt-5 mb-2">
+                    <div>
+                        <p class="text-dark mb-2 h6">Requirement</p>
+                        <p class="mb-2 h5">{{i.3}}</p>
+                      </div>
+                    <div>
+                      <p class="text-dark mb-2 h6">From Date</p>
+                      <p class= "mb-2 h5">{{i.8}}</p>
+                    </div>
+                    <div>
+                        <p class="text-dark mb-2 h6">To Date</p>
+                        <p class= "mb-2 h5">{{i.9}}</p>
+                      </div>
+                    <div class="px-3">
+                      <p class="text-dark mb-2 h6">No of workers</p>
+                      <p class="mb-2 h5">{{i.7}}</p>
+                    </div>
+                    <div>
+                      <p class="mb-2 h5"></p>
+                      <p class="text-muted mb-0"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+            </div>
+            
+          </div>
+        </div>
+      </section> -->
+      
+      <div class="container-fluid bg-gradient p-5">
+       
+        <div class="row m-auto text-center w-75">
+         
+          {% for i in req%}
+          
+          <div class="col-3 princing-item red">
+            
+            <div class="pricing-divider ">
+                <h3 class="text-light">{{i.13}}<br>{{i.17}}</h3>
+              <h6 class="my-0 display-4 text-light font-weight-normal mb-3"><span class="h3"></span><span class="h5"></span></h6>
+               <svg class='pricing-divider-img' enable-background='new 0 0 300 100' height='100px' id='Layer_1' preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px' xml:space='preserve' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' y='0px'>
+            <path class='deco-layer deco-layer--1' d='M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729
+    c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z' fill='#FFFFFF' opacity='0.6'></path>
+            <path class='deco-layer deco-layer--2' d='M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729
+    c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z' fill='#FFFFFF' opacity='0.6'></path>
+            <path class='deco-layer deco-layer--3' d='M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716
+    H42.401L43.415,98.342z' fill='#FFFFFF' opacity='0.7'></path>
+            <path class='deco-layer deco-layer--4' d='M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428
+    c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z' fill='#FFFFFF'></path>
+          </svg>
+            </div>
+            <div class="card-body bg-white mt-0 shadow">
+              <ul class="list-unstyled mb-5 position-relative">
+                <li><b>Requirement: </b>{{i.4}}</li>
+                <li><b>From Date: </b>{{i.9}}</li>
+               
+                <li><b>To Date: </b>{{i.10}}</li>
+                <li><b>No of workers: </b>{{i.8}}</li>
+  
+              </ul>
+              <!-- <button type="button" class="btn btn-lg btn-block  btn-custom ">Sign up for free</button> -->
+            </div>
+          </div>
+          
+          {% endfor %}
+        </div>
+       
+      </div>
+        
+<!-- Police LaborWork -->
+
+<div class="container">
+    
+  <div class="row">
+     
+          <!-- <div class="search"> -->
+              <i> </i>
+              <div class="s-bar"style="width:50%;
+              margin: 0 auto;
+              padding: 0.5em 0em 0.5em 0em;">
+                 <form method="post">
+                  {% csrf_token %}
+                <!-- <input type="text" value="Search Template" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Template';}"> -->
+                <select  style="color: rgb(15, 14, 14);
+                text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);" name="lab" value="Search Template" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Template';}">
+                  <option>search Labourer</option>
+                  {% for i in data %}
+                  <option value="{{i.2}}">{{i.1}},{{i.2}}</option>
+                  {% endfor %}
+              </select>
+                <input type="submit" name="labr" value="Search"/>
+                </form>
+              </div>
+              </div>
+              </div>
+              </div>
+              </div>
+              
+            <!--search end here-->	
+            <!-- </div> -->
+      <!-- </div> -->
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<div class="container-fluid bg-gradient p-5">
+    <div class="row m-auto text-center w-75">
+      {% for i in track %}
+      
+      <div class="col-4 princing-item red">
+        <div class="pricing-divider ">
+            <h5 class="text-light">Work History</h5>
+          <h6 class="my-0 display-4 text-light font-weight-normal mb-3"><span class="h5">{{i.3}}</span>  <span class="h5"></span></h6>
+           <svg class='pricing-divider-img' enable-background='new 0 0 300 100' height='100px' id='Layer_1' preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px' xml:space='preserve' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' y='0px'>
+        <path class='deco-layer deco-layer--1' d='M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729
+c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z' fill='#FFFFFF' opacity='0.6'></path>
+        <path class='deco-layer deco-layer--2' d='M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729
+c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z' fill='#FFFFFF' opacity='0.6'></path>
+        <path class='deco-layer deco-layer--3' d='M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716
+H42.401L43.415,98.342z' fill='#FFFFFF' opacity='0.7'></path>
+        <path class='deco-layer deco-layer--4' d='M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428
+c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z' fill='#FFFFFF'></path>
+      </svg>
+        </div>
+        <div class="card-body bg-white mt-0 shadow">
+          <ul class="list-unstyled mb-5 position-relative">
+            <li><b>Labourer Name: </b>{{i.1}}</li>
+            <!-- <li><b>Date of Work: </b>{{i.3}}</li> -->
+            <li><b>WorkSite: </b>{{i.2}}</li>
+            <li><b>Work: </b>{{i.4}}</li>
+          </ul>
+          <!-- <button type="button" class="btn btn-lg btn-block  btn-custom ">Sign up for free</button> -->
+        </div>
+      </div>
+   
+  {% endfor %}
+
+</div>
+  </div>
+
+
+
+<!-- User viewAssignLab  -->
+
+<div class="search">
+  <i> </i>
+  <div class="s-bar">
+     <form method="post">
+    {% csrf_token %}
+    <!-- <input type="text" value="Search Template" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Template';}"> -->
+    <select name="req" value="Search Template" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Template';}">
+    <option>search worksite</option>
+    {% for i in data1 %}
+    <option value="{{i.4}}">{{i.4}}</option>
+    {% endfor %}
+  </select>
+  <input class="form-control" type="text" name="sub" placeholder="Subject">
+    <input type="submit" name="requ" value="Search"/>
+    </form>
+  </div>
+  </div>
+
+<br><br>
+	  {% if ass %}
+	<div class="container">
+		<div class="row">
+		{% for i in ass %}
+		<div class="col-md-3">
+	  <div class="card">
+		
+		<div class="face face1">
+		  <div class="content">
+			<h5>Requirement:{{i.0}}</h5> 
+			<h4>Labour Name:{{i.3}}</h4>
+			<!-- <h4>Labour Code:{{i.2}}</h4> -->
+			<h6>WorkSite:{{i.2}}</h6>
+			<h6>Agency:{{i.4}}</h6>
+
+
+			
+		  </div>
+		</div>
+		<div class="face face2">
+		  <h2 style="font-size:30px;">{{i.1}}</h2>
+		</div>
+		</div>
+		
+		</div>
+		{% endfor %}
+	  </div>
+	  </div>
+	 
+	  <!-- <div class="card">
+		<div class="face face1">
+		  <div class="content">
+			<h2>Lorem Ipsum</h2> 
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+		  </div>
+		</div> -->
+		<!-- <div class="face face2">
+		  <h2>02</h2>
+		</div>
+	  </div>
+	  <div class="card">
+		<div class="face face1">
+		  <div class="content">
+			<h2>Lorem Ipsum</h2> 
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+		  </div>
+		</div> -->
+		<!-- <div class="face face2">
+		  <h2>03</h2> -->
+		</div>
+	  </div>
+	</div>
+	{% else %}
+        <marquee behavior="scroll" direction="right" scrollamount="5"><h1 style="font-size:20px;font-weight: 500;color:red;">Not assigned the labourer</h1></marquee>    
+        {% endif %}
+  
+
+
+
+
+<!--agency/ Assignlabour1 -->
+
+
+<br><br>	
+  <div class="center-container">
+		<div class="main">
+			<h1 class="w3layouts_head">Labour Assign</h1>
+				<div class="w3layouts_main_grid">
+					<form action="#" method="post" class="w3_form_post">
+						{% csrf_token %}	
+						
+						<div class="agileits_w3layouts_main_grid w3ls_main_grid">
+							<span class="agileinfo_grid">
+								<label>Date </label>
+								<div class="agileits_w3layouts_main_gridl">
+									<input class="date" id="datepicker" name="dat" type="date" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required="">
+								</div>
+								
+									<div class="clear"> </div>
+							</span>
+						</div>
+						<div class="w3_agileits_main_grid w3l_main_grid">
+              
+              <span class="agileits_grid"> <label>Labourer</label></span>
+              <br>
+              {% for i in lab %}
+							<span class="agileits_grid">
+								<input type="checkbox" name="lab"  value="{{i.2}}">{{i.1}},{{i.2}}<h6>{{msg}}</h6>
+							</span>
+							<h6>{{msg}}</h6>
+              {% endfor %}
+						</div>
+						
+						
+					
+						
+					<div class="w3_main_grid">
+						<div class="w3_main_grid_right">
+							<input type="submit" value="Submit">
+						</div>
+					</div>
+				</form>
+			</div>
+		<!-- Calendar -->
+			<link rel="stylesheet" href="css/jquery-ui.css" />
+				<script src="js/jquery-ui.js"></script>
+					<script>
+						$(function() {
+							$( "#datepicker" ).datepicker();
+						});
+					</script>
+	
+		</div>
+	</div>
+
+
+
+
+
+  <!-- attendence1 -->
+  <div class="content">
+    
+    <div class="container">
+      <div class="row">
+      
+      <!-- <h2 class="mb-5">Table #8</h2> -->
+      
+        <div class="col-md-2"></div>
+      <div class="table-responsive custom-table-responsive col-md-8">
+
+        <table class="table custom-table" style="color:rgb(40, 3, 127)">
+          <thead style="color:rgb(40, 3, 127)">
+            <tr style="color:rgb(40, 3, 127)">  
+
+              
+              
+              <th  style="color:rgb(40, 3, 127)" scope="col">Date</th>
+              <th scope="col">Requirement</th>
+              <th scope="col">WorkSite</th>
+             
+            </tr>
+          </thead>
+          {% for i in req %}
+          <tbody>
+            <tr scope="row">
+              
+              <td>
+                {{i.1}}
+              </td>
+              <td><a href="#">{{i.3}}</a></td>
+              <td>
+               {{i.4}}
+                <!-- <small class="d-block">Far far away, behind the word mountains</small> -->
+              </td>
+              <td><a href="/Attendence2?aid={{i.0}}&bid={{i.1}}&cid={{i.4}}&did={{i.5}}"><i  class="bi bi-arrow-left-square-fill"></i></a></td>
+              <!-- <td>+63 983 0962 971</td>
+              <td>NY University</td> -->
+            </tr>
+            <tr class="spacer"><td colspan="100"></td></tr>
+           
+            </tr>
+            
+          </tbody>
+          {% endfor %}
+        </table>
+      </div>
+
+</div>
+    </div>
+
+  </div>
+    
+    

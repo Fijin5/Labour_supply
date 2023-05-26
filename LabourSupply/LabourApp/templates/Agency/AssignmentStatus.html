@@ -1,0 +1,123 @@
+{% extends 'Agency/AgencyHome.html' %}
+{% block content %}
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <!-- Style -->
+   
+    <link rel="stylesheet" href="static/css/search.css"/>
+    <link rel="stylesheet" href="static/css/table.css"/>
+    <title>Labour Assignement Status</title>
+  </head>
+  <body style="background-image:url('static/images/bg3.jpg');background-repeat: no-repeat;background-size: cover;">
+ 
+  
+    <div class="search">
+        <i> </i>
+        <div class="s-bar">
+           <form method="post">
+            {% csrf_token %}
+          <!-- <input type="text" value="Search Template" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Template';}"> -->
+          <select name="user" value="Search Template" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Template';}"  style="color: rgb(15, 14, 14);
+          text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);" >
+            <option>search User</option>
+            {% for i in ass %}
+            <option value="{{i.1}}">{{i.0}},{{i.1}}</option>
+            {% endfor %}
+        </select>
+          <input type="submit" name="lab" value="Search"/>
+          </form>
+        </div>
+        </div>
+      <!--search end here-->	
+      </div>
+      <br><br>
+   {% if lab %}
+      <div class="container">
+        <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+        <div class="table-responsive">
+       
+        
+       
+          <table class="table table-striped custom-table">
+            <thead>
+              <tr>
+                <th scope="col">
+                  <label class="control control--checkbox">
+                    <!-- <input type="checkbox"  class="js-check-all"/>
+                    <div class="control__indicator"></div> -->
+                  </label>
+                </th>
+                <th scope="col">Date Of  Work</th>
+                <th scope="col">Type of Work</th>
+                <th scope="col">Work Place</th>
+                <th scope="col">Labourer</th>
+
+                
+              
+                
+                
+              </tr>
+            </thead>
+            {% for i in lab %}  
+          <tbody>
+            <tr scope="row">
+              <td>
+                <label class="control control--checkbox">
+               
+                </label>
+              </td>
+              <td>
+                {{i.1}}
+              </td>
+              <td>
+                {{i.3}}
+              </td>
+              <td>
+                {{i.4}}
+               
+              </td>
+              <td>
+                {{i.9}}
+                
+              </td>
+              <td class="pl-0">
+                <div class="d-flex align-items-center">
+                  <label class="custom-control ios-switch">
+                 
+                  </label>
+
+                 
+                </div>
+              </td>
+              
+              
+                          
+            </tr>
+            </tbody>
+            {% endfor %}
+          
+        </table>
+    </div>
+    </div>
+    </div>
+    </div>
+{% endif %}
+    
+	</body>
+<br><br><br>
+
+{% endblock %}

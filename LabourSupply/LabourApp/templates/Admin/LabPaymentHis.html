@@ -1,0 +1,67 @@
+{% extends 'Admin/Adminhome.html' %}
+{% block content %}
+
+<head>
+	
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="static/css/montserrat-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<!-- Main Style Css -->
+  <link rel="stylesheet" href="static/css/agen.css"/>
+ <!-- <link rel="stylesheet" href="static/css/table/table6.css"/> -->
+    <link rel="stylesheet" href="static/css/search.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  
+   
+</head>
+<body style="background-image:url('static/images/bg3.jpg');background-repeat: no-repeat;background-size: cover;" >
+  
+<br><br><br><br><br><br>
+<div class="container-fluid bg-gradient p-5">
+  <!-- <center><h3 style="font-family :Lucida Handwriting;">Client Requirement</h3></center><br> -->
+  {% for i in labpay%}
+  <div class="row m-auto text-center w-75">
+       <div class="col-md-4" >
+      <img src="static/upload/{{i.4}}" class="img-radius" width="300px" height="300px" alt="User-Profile-Image">
+    </div>
+     <div class="col-md-6" >
+    <ul style="list-style-type:none;text-align: justify;font-size:18px;font-weight: 400;">
+      
+      <li><b>Salary Date: </b>{{i.0}}</li>
+      <li><b>Labourer Name: </b><span >{{i.3}}</span></li>
+      <li><b> Agency Name: </b>{{i.5}}</li>
+      <li><b>Work: </b>{{i.1}}</li>
+      <li><b>Salary: </b>{{i.2}}</li>
+      <li><b>Client Name: </b>{{i.6}}</li>
+      <!-- <li><b>Aadhar Number: </b>{{i.9}}</li> -->
+     </ul>
+     <!-- <a href="/Labour?aid={{i.0}}"><button type="submit" class="btn btn-success">Labourers</button></a>
+     <a href="/Salarydetails?aid={{i.0}}"><button type="submit" class="btn btn-danger">Salary</button></a> -->
+    </div>
+  
+    <!-- <div class="col-md-2" >
+      <a  style="font-size:25px;" href="/AssignLabour1?aid={{i.0}}">
+        <i class="bi bi-person"></i>
+        
+      </a>
+     
+      <a style="font-size:25px;" href="/catdelete?aid={{i.0}}">
+        <i class="bi bi-trash"></i>
+      </a>
+    </div> -->
+
+
+   
+
+ 
+ </div>
+ <hr>
+   {% endfor %} 
+   </div>
+  </body>
+<br><br><br><br><br><br>
+
+{% endblock %}

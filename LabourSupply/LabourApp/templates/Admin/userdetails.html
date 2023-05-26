@@ -1,0 +1,75 @@
+{% extends 'Admin/Adminhome.html' %}
+{% block content %}
+
+<head>
+	
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="static/css/montserrat-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<!-- Main Style Css -->
+  <link rel="stylesheet" href="static/css/agen.css"/>
+ <!-- <link rel="stylesheet" href="static/css/table/table6.css"/> -->
+    <link rel="stylesheet" href="static/css/search.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  
+   
+</head>
+<body style="background-image:url('static/images/bg3.jpg');background-repeat: no-repeat;background-size: cover;" >
+  
+<br><br><br><br><br><br>
+<center><span style="font-family :Lucida Handwriting;font-size:50px;font-weight: 500;color:blue"><u>Client</u></span></center><br>
+
+<div class="container-fluid bg-gradient p-5">
+  
+  <!-- <center><h3 style="font-family :Lucida Handwriting;">Client Requirement</h3></center><br> -->
+ 
+  <div class="row m-auto text-center w-75">
+       <div class="col-md-4" >
+      <img src="static/upload/{{user.7}}" class="img-radius" width="300px" height="300px" alt="User-Profile-Image">
+    </div>
+     <div class="col-md-7" >
+    <ul style="list-style-type:none;text-align: justify;font-size:18px;font-weight: 400;">
+      
+   
+        <li><b>Labourer Name: </b><span>{{user.2}}</span></li>
+        <li><b>Address: </b>{{user.3}}</li>
+        <li><b>Phone Number: </b>{{user.4}}</li>
+        <li><b>Email Id: </b>{{user.5}}</li>
+       
+     </ul>
+     <!-- <a href="/Labourdetails?aid={{user.14}}"><button type="submit" class="btn btn-success">Available Labourers</button></a> -->
+     <!-- <a href="/Salarydetails?aid={{user.0}}"><button type="submit" class="btn btn-danger">Salary</button></a> -->
+    </div>
+  
+    <!-- <div class="col-md-2" >
+      <a  style="font-size:25px;" href="/AssignLabour1?aid={{user.0}}">
+        <i class="bi bi-person"></i>
+        
+      </a>
+     
+      <a style="font-size:25px;" href="/catdelete?aid={{user.0}}">
+        <i class="bi bi-trash"></i>
+      </a>
+    </div> -->
+
+
+
+ 
+ </div>
+ <hr>
+  
+   
+   </div>
+   
+  
+  
+   <div style="font-size:xx-large;margin-left:20px;">
+   <a href="{{request.META.HTTP_REFERER}}"><i  class="bi bi-arrow-left-square-fill"></i></a>
+   </div>
+  </body>
+<br><br><br><br><br><br>
+
+{% endblock %}

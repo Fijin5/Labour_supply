@@ -1,0 +1,82 @@
+{% extends 'User/UserHome.html' %}
+{% block content %}
+<head>
+	
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="static/css/montserrat-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<!-- Main Style Css -->
+    <!-- <link rel="stylesheet" href="static/css/assign/assign.css"/> -->
+	<link rel="stylesheet" href="static/css/review/review1.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  
+   
+</head>
+<body style="background-image:url('static/images/bg3.jpg');background-repeat: no-repeat;background-size: cover;" >
+  
+
+<section >
+  <div class="container my-12 py-5 text-dark">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-6">
+        <div class="card">
+          <div class="card-body p-4">
+            <div class="d-flex flex-start w-100">
+              <img class="rounded-circle shadow-1-strong me-3"
+                src="static/upload/{{user.7}}" alt="avatar" width="65"
+                height="65" />
+              <div class="w-100">
+                <h5>Add a comment</h5>
+
+<div class="rating">
+
+  <input type="radio" name="rating" value="5" id="5"><label title="Bad" for="5">☆</label>
+  <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+  <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+  <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+  <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+</div>
+<form method="post" >
+  {% csrf_token %}
+<div class="form-outline">
+  <input class="form-control" type="text" name="Name"  value="{{user.1}}" required>
+  <label class="form-label" for="textExample">Name</label>
+</div>
+<div class="form-outline">
+<select name="agen"  class="form-control" value="Search Template" required>
+  <label class="form-label" for="textExample">Agency Name</label>
+  <option></option>
+  {% for i in agen %}
+  <option value="{{i.14}}">{{i.1}}</option>
+  {% endfor %}
+  
+</select>
+
+</div>
+<label class="form-label" for="textExample">Agency Name</label>
+<br>
+<div class="form-outline">
+  <textarea class="form-control" id="textAreaExample" rows="4" name="rev" required></textarea>
+  <label class="form-label" for="textAreaExample">What is your view?</label>
+</div>
+
+
+  <!-- <button type="button" class="btn btn-success">Danger</button> -->
+  <button class="btn btn-danger btn-sm" style="width: 100%;"><i class="fa fa-envelope-o" style="padding-right: 5px;"></i> Send</button>
+
+
+</form>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+  <br><br><br><br><br>
+{% endblock %}

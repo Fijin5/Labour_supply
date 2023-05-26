@@ -1,0 +1,55 @@
+{% extends 'Police/PoliceHome.html' %}
+{% block content %}
+<head>
+  
+    <title>Labourer Registraion</title>
+
+    <!-- Font Icon -->
+    <!-- <link rel="stylesheet" href="static/fonts/material-icon/css/material-design-iconic-font.min.css"> -->
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="static/css/labveri.css">
+    <link href="static/css/main.css" rel="stylesheet">
+</head>
+<body style="background-image:url('static/images/bg3.jpg');background-repeat: no-repeat;background-size: cover;">  
+    <div class="page-content">
+        {% for i in lab %}
+        <div class="card">
+            <div class="card-content">
+                <div class="image">
+                    <img src="static/upload/{{i.12}}">
+                </div>    
+                <div class="text-center">
+                    <h2>{{i.1}}</h2>
+                </div>   
+                <div class="stats">
+                    <div class="stat1">
+                        <span>{{i.11}}</span>
+                        <span>Aadhar Number</span>
+                    </div>  
+                    <div class="stat1">
+                        <span>{{i.8}}</span>
+                        <span>District</span>
+                    </div> 
+                    <div class="stat1">
+                        <span>{{i.7}}</span>
+                        <span>State</span>
+                    </div>     
+                </div>
+                <div class="buttons"> 
+                    <a href="/LabourAccept?Lid={{i.0}}"><button class="follow">Accept</button></a>
+                    <!-- <a href="/LabourReject?Lid={{i.0}}"><button class="message">Reject</button></a> -->
+                </div>
+                
+            </div>
+            
+            
+        </div>
+        {% endfor %}
+</div>
+
+    <!-- JS -->
+    <script src="static/vendor/jquery/jquery.min.js"></script>
+    <script src="static/js/main.js"></script>
+</body>
+{% endblock %}

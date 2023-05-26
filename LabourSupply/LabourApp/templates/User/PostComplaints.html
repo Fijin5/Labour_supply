@@ -1,0 +1,129 @@
+{% extends 'User/UserHome.html' %}
+{% block content %}
+<head>
+	
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="static/css/montserrat-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="static/css/assign/assign.css"/>
+	<link rel="stylesheet" href="static/css/search.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+  <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+  <!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+   
+</head>
+<body style="background-image:url('static/images/bg3.jpg');background-repeat: no-repeat;background-size: cover;" >
+  <br><br><br><br><br><br>
+
+  <!------ Include the above in your HEAD tag ---------->
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link type="text/css" rel="stylesheet" href="http://dinus.org/assets/mail/mailtip.css"/>
+  <script type="text/javascript" src="http://dinus.org/assets/mail/jquery.mailtip.js"></script>
+  <section>
+  <div class="container">
+      <div class="row">
+          <!-- <center><h2>Awesome Form Complaints Or Suggestions Via E-mail</h2></center> -->
+          <div class="col-md-2"></div>
+          <div class="col-md-6">
+              <div class="panel panel-default">
+                <center><strong style="color:aliceblue;font-size:xx-large;">Complaints</strong></center>
+                      <div class="panel-body" style="background-color: rgb(194, 184, 173);margin-bottom:10px;">
+                        
+                          <div class="col-md-9 row" style="padding:0px;margin-bottom:10px;">
+                              
+                              <!-- <div class="col-md-2"> -->
+                                  <img src="http://dinus.org/img/fakultas/FIK/cs/cs.svg">
+                                 
+                                  <div style="margin-left:30px;">
+                                      <img src="static/upload/{{user.7}}" width="70px" height="70px" class="img-circle" style="border:3px solid #052C52;">
+                                      
+                                  </div>
+                              <!-- </div> -->
+                              <!-- <div class="col-md-10"> -->
+                                  <hr>
+                                  <p style="padding-left:55px;font-size:1.3em;"><strong>{{user.1}}<br>{{user.2}}</strong></p>
+                                  
+                              <!-- </div> -->
+                              
+                              
+                          </div>
+  
+                          <form method="post" >
+                            {% csrf_token %}
+                              <table class="table">
+                                  <tr>
+                                      <td>
+                                          <input type="email" class="form-control" value="{{user.4}}"  id="mailtip2" placeholder="Your e-mail">
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                        <select name="agen"  class="form-control" value="Search Template">
+                                            <option></option>
+                                            {% for i in agen %}
+                                            <option value="{{i.14}}">{{i.1}}</option>
+                                            {% endfor %}
+                                          </select>
+                                          </td>
+                                          </tr>
+                                          <tr>
+                                          <td>
+                                              <input class="form-control" type="text" name="sub" placeholder="Subject">
+                                          </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                      <td>
+                                          <textarea class="form-control" rows="4" name="comp" placeholder="Message text . . ."></textarea>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <button class="btn btn-danger btn-sm" style="width: 100%;"><i class="fa fa-envelope-o" style="padding-right: 5px;"></i> Send</button>
+                                      </td>
+                                  </tr>
+                              </table>
+  
+                          </form>
+                      </div>
+                  </div>
+  
+              </div>
+  
+          </div>
+      
+  </div>
+  </section>
+  <script>
+    $(function (){
+    var info = $('.info');
+    $('#mailtip2').mailtip({
+    onselected: function (mail){
+    info.text('you choosed email: ' + mail)
+    }
+    });
+});
+  </script>
+  <!-- Created By : Nandang Mulyadi -->
+  <!-- <div class="container">
+      <div class="row">
+          <center>
+              <footer>Dev : Nandang Mulyadi <cite title="Source Title">Indonesia</cite></footer>
+              <p style="color:#b1b1b1;">
+                  Thank's to <br>
+                  University Of Dian Nuswantoro Semarang <br>
+                  http://fortawesome.github.io/, http://loading.io/ , http://www.jqueryscript.net/ ,http://bootsnipp.com/
+              </p>
+          </center>
+      </div>
+  </div> -->
+  
+  </body>
+  <br><br><br><br><br><br><br><br><br>
+{% endblock %}

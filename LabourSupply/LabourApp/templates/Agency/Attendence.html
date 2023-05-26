@@ -1,0 +1,81 @@
+{% extends 'Agency/AgencyHome.html' %}
+{% block content %}
+<head>
+	
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="static/css/montserrat-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="static/css/Table/table2.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  
+   
+</head>
+
+
+<body style="background-image:url('static/images/bg3.jpg');background-repeat: no-repeat;background-size: cover;">
+  <div class="content">
+    
+    <div class="container">
+      <div class="row">
+      
+      <!-- <h2 class="mb-5">Table #8</h2> -->
+      
+        <div class="col-md-2"></div>
+      <div class="table-responsive custom-table-responsive col-md-8">
+{% if req %}
+        <table class="table custom-table" style="color:rgb(40, 3, 127)">
+          <thead style="color:rgb(40, 3, 127)">
+            <tr style="color:rgb(40, 3, 127)">  
+
+              
+              
+              <th  style="color:rgb(40, 3, 127)" scope="col">Date</th>
+              <th scope="col">Requirement</th>
+              <th scope="col">WorkSite</th>
+              <th scope="col">Select</th>
+             
+            </tr>
+          </thead>
+          {% for i in req %}
+          <tbody>
+            <tr scope="row">
+              
+              <td>
+                {{i.1}}
+              </td>
+              <td><a href="#">{{i.3}}</a></td>
+              <td>
+               {{i.4}}
+                <!-- <small class="d-block">Far far away, behind the word mountains</small> -->
+              </td>
+              <td><a href="/Attendence2?aid={{i.0}}&bid={{i.1}}&cid={{i.4}}&did={{i.5}}" style="font-size:30px ;"><i class="bi bi-arrow-right-square-fill"></i></a></td>
+              <!-- <td>+63 983 0962 971</td>
+              <td>NY University</td> -->
+            </tr>
+            <tr class="spacer"><td colspan="100"></td></tr>
+           
+            </tr>
+            
+          </tbody>
+          {% endfor %}
+
+        </table>
+        {% else %}
+   <marquee behavior="scroll" direction="right" scrollamount="5"><h1 style="font-size:20px;font-weight: 500;color:red;">No details</h1></marquee>   
+  {% endif %}
+      </div>
+
+</div>
+    </div>
+
+  </div>
+    
+    
+</body>
+<br><br><br>
+
+{% endblock %}

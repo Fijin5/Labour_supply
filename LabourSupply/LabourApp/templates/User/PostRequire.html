@@ -1,0 +1,155 @@
+{% extends 'User/UserHome.html' %}
+{% block content %}
+<head>
+	
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="static/css/montserrat-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="static/css/agreg.css"/>
+    <link rel="stylesheet" href="static/css/postre.css"/>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  
+   
+</head>
+<br><br>
+<body style="background-image:url('static/images/bg3.jpg');background-repeat: no-repeat;background-size: cover;">
+
+    
+	<div class="page-content row" >
+        
+		<div class="form-v10-content col-6" >
+			<form method="post" onsubmit="myFunction()">
+                {% csrf_token %}
+                <h3>Requirement Form</h3>
+                <div class="form-group">
+                    <div class="form-wrapper">
+                        <label for=""> choose the Agency:</label>
+                        <div class="form-holder">
+                            <!-- <i class="zmdi zmdi-account-o"></i> -->
+                            <select name="age"  class="form-control" >
+                                {% for i in ag %}
+                                <option value="{{i.14}}">{{i.1}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-wrapper">
+                        <label for="">Username:</label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            <input type="text" name="name" value="{{user.1}}" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-wrapper">
+                        <label for="">Usercode</label>
+                        <div class="form-holder">
+                            
+                            <input type="text" name="usercode" value="{{user.5}}" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-wrapper">
+                        <label for="">City</label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-lock-outline"></i>
+                            <input type="text" name="city"   class="form-control" >
+                            
+                        </div>
+                    </div>
+                    <div class="form-wrapper">
+                        <label for="">District</label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-lock-outline"></i>
+                            <input type="text" name="district"   class="form-control" >
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-wrapper">
+                        <label for="">Requirements</label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-lock-outline"></i>
+                            <textarea class="form-control" name="require" ></textarea>
+                            
+                        </div>
+                    </div>
+                    <div class="form-wrapper">
+                        <label for="">Place of worksite</label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-lock-outline"></i>
+                            <input type="text" name="worksite"   class="form-control" >
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="form-wrapper">
+                        <label for="">No.of Workers needed</label>
+                        <div class="form-holder">
+                            <input type="number" name="workers"   class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-wrapper">
+                        <label for="">From date</label>
+                        <div class="form-holder">
+                            <input type="date" name="from_date"  class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-wrapper">
+                        <label for="">To date</label>
+                        <div class="form-holder">
+                            <input type="date" name="to_date"  class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-wrapper">
+                        <label for="">Amount per Worker</label>
+                        <div class="form-holder">
+                            <input type="number" name="amt" value="700"   class="form-control">
+                        </div>
+                    </div>
+                   
+                </div>
+                
+                    <div class="button-holder">
+                        <input type="submit" class="btn btn-warning" value="register Now" name="register" >
+                        <!-- <button onclick="msg()">Register Now</button> -->
+                    </div>
+                    
+                </div>
+                {%if req %}
+                <div class="col-4" id="d1" >
+                    <div style="border: 4mm white;background-color:white;height:300px;padding: 30px;">
+                        <h4>No of labours:{{req.8}}</h4><br>
+                        <h4>Starting date:{{req.9}}</h4><br>
+                        <h4>Ending Date:{{req.10}}</h4><br>
+                        <h4>Amount per worker:{{req.11}}</h4><br>
+                        <h4>Total Amount:{{tot}}</h4><br>
+                        <form method="post" enctype="multipart/form-data" >
+                            {% csrf_token %}
+                            <input type="submit" class="btn btn-success" value="Request" name="Accept">
+                            <input type="submit" class="btn btn-danger" value="Cancel" name="Cancel"> 
+                        </form>
+                        
+                            
+                        
+                        <!-- <a href="/RegAccept?Lid={{req.0}}"><button class="btn btn-success">Request</button><span></span><button  class="btn btn-danger">Cancel</button> -->
+                    </div>
+                </div>
+                {%endif%}
+            </form>
+          
+		</div>
+        
+	</div>
+   
+	
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+{% endblock %}

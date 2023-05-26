@@ -1,0 +1,66 @@
+{% extends 'Police/PoliceHome.html' %}
+{% block content %}
+<head>
+	
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="static/css/montserrat-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<!-- Main Style Css -->
+    <!-- <link rel="stylesheet" href="static/css/agreg.css"/> -->
+    <!-- <link rel="stylesheet" href="static/css/postre.css"/> -->
+    <link rel="stylesheet" href="static/css/Table/AdAgency.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  
+   
+</head>
+<body style="background-image:url('static/images/bg3.jpg');background-repeat: no-repeat;background-size: cover;">
+	
+
+		
+    <br><br><br><br><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+              
+                
+                <table class="table table-dark">
+                    <thead class="thead-dark">
+                      <tr>
+                        
+                        <th scope="col">Agency Name</th>
+                        <th scope="col">Reg No</th>
+                        <th scope="col">District</th>
+                        
+                       
+                      </tr>
+                    </thead>
+                  
+                    <tbody>
+                        {% for i in agen %}
+                      <tr>
+                        <th scope="row">{{i.1}}</th>
+                        <td>{{i.2}}</td>
+                        <!-- <td>{{i.3}}</td> -->
+                       
+                        <!-- <td>{{i.5}}</td> -->
+                        <td>{{i.6}}</td>
+                        <!-- <td>{{i.7}}</td> -->
+                        <td><a href="/PoliceAgency2?aid={{i.0}}"><button type="submit" class="btn btn-dark">Select</button></a></td>
+                        
+                                              
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                    
+                  </table>
+                
+            </div>
+        </div>
+    </div>
+</body>
+<!-- This templates was made by Colorlib (https://colorlib.com) -->
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'Agency/AgencyHome.html' %}
+{% block content %}
+<head>
+	
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="static/css/montserrat-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="static/css/attend/style.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  
+   
+</head>
+
+
+<body style="background-image:url('static/images/bg3.jpg');background-repeat: no-repeat;background-size: cover;">
+	<br><br><br>
+	<div class="center-container">
+		<div class="main">
+			<h1 class="w3layouts_head">Attendence Form</h1>
+				<div class="w3layouts_main_grid">
+					<form action="#" method="post" class="w3_form_post">
+						{% csrf_token %}	
+						
+						<div class="agileits_w3layouts_main_grid w3ls_main_grid">
+							<span class="agileinfo_grid">
+								<label>Date  </label>
+								<div class="agileits_w3layouts_main_gridl">
+									<input class="date" id="datepicker" name="dat" type="text" value="{{workdate}}" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required="">
+								</div>
+								<!-- <div class="agileits_w3layouts_main_gridr">
+									<input type="time" name="Time" placeholder=" " required="">
+								</div> -->
+									<div class="clear"> </div>
+							</span>
+						</div>
+						<div class="w3_agileits_main_grid w3l_main_grid">
+							<span class="agileits_grid">
+								<label>Labourer</label>
+								{% for i in lab %}
+								<input type="checkbox" name="lab"  value="{{i.2}}" placeholder="Phone Number" required="">{{i.2}}
+								{% endfor %}
+								</span>
+						</div>
+						
+						
+					
+						
+					<div class="w3_main_grid">
+						<div class="w3_main_grid_right">
+							<input type="submit" value="Submit">
+						</div>
+					</div>
+				</form>
+			</div>
+		<!-- Calendar -->
+			<link rel="stylesheet" href="css/jquery-ui.css" />
+				<script src="js/jquery-ui.js"></script>
+					<script>
+						$(function() {
+							$( "#datepicker" ).datepicker();
+						});
+					</script>
+		<!-- //Calendar -->
+			<!-- <div class="w3layouts_copy_right">
+				<div class="container">
+					<p>© 2017 Event Registration Form. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts.</a></p>
+				</div>
+			</div> -->
+		</div>
+	</div>
+</body>
+<br><br><br>
+
+{% endblock %}

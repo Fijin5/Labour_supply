@@ -1,0 +1,122 @@
+{% extends 'Admin/adminhome.html' %}
+{% block content %}
+
+<head>
+	
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="static/css/montserrat-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="static/css/table/table6.css"/>
+ 
+    <link rel="stylesheet" href="static/css/search.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  
+   
+</head>
+<body style="background-image:url('static/images/bg3.jpg');background-repeat: no-repeat;background-size: cover;" >
+  
+<br><br><br><br><br><br>
+<div class="container">
+    
+  <div class="row">
+     
+          <!-- <div class="search"> -->
+              <i> </i>
+              <div class="s-bar"style="width:50%;
+              
+              margin: 0 auto;
+              padding: 0.5em 0em 0.5em 0em;">
+                 <form method="post">
+                  {% csrf_token %}
+                <!-- <input type="text" value="Search Template" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Template';}"> -->
+                <select  style="color: rgb(15, 14, 14);
+                text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);" name="lab" value="Search Template" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Template';}">
+                  <option>search Labourer</option>
+                  {% for i in data %}
+                  <option value="{{i.2}}">{{i.1}},{{i.2}}</option>
+                  {% endfor %}
+              </select>
+                <input type="submit" name="labr" value="Search"/>
+                </form>
+              </div>
+              </div>
+              </div>
+              <div class="container-fluid bg-gradient p-5">
+                <!-- <center><h3 style="font-family :Lucida Handwriting;">Client Requirement</h3></center><br> -->
+                
+                <div class="row m-auto text-center w-75">
+                 
+                 
+                  
+                 {%if track %}
+                  <div class="col-md-4" >
+                    <img src="static/upload/{{track.12}}" class="img-radius" width="300px" height="300px" alt="User-Profile-Image">
+                  </div>
+                 
+                  <div class="col-md-6" >
+                    <ul style="list-style-type:none;text-align: justify;font-size:18px;">
+                    
+                    <li><b>Labourer Name: </b><span>{{track.1}}</span></li>
+                    <li><b>Address: </b>{{track.5}}</li>
+                    <li><b>Phone Number: </b>{{track.10}}</li>
+                    <li><b>State: </b>{{track.8}}</li>
+                    <li><b>District: </b>{{track.7}}</li>
+                    <li><b>City: </b>{{track.6}}</li>
+                    <li><b>Aadhar Number: </b>{{track.11}}</li>
+                    
+                  </ul>
+                
+                </div>
+                {% endif %}
+             
+               
+               </div>
+               <hr>
+              
+{% if track1 %}
+        <div class="row">
+          <div class="col-md-3" ></div>
+            <div class="col-md-7" >
+            <table class="table">
+              <thead class="table-dark">
+                <tr>
+                <th scope="col"></th>
+                <th  style="color:rgb(40, 3, 127)" scope="col">Date</th>
+                <th scope="col">Work</th>
+                <th scope="col">WorkSite</th>
+                <th scope="col">Client</th>
+
+                </tr>
+              </thead>
+              {% for i in track1%}
+              <tbody>
+                <tr>
+                  <tr scope="row">
+                    <td></td>
+                    <td>
+                      {{i.1}}
+                    </td>
+                    <td>{{i.2}}</a></td>
+                    <td>
+                     {{i.0}}
+                     
+                    </td>
+                    <td><a href="/Userdetails?aid={{i.4}}">{{i.3}}</a></td>
+                </tr>
+              </tbody>
+              {%endfor %}
+            </table>
+          </div>
+        </div> 
+        {% else %}
+        <marquee behavior="scroll" direction="right" scrollamount="5"><h1 style="font-size:20px;font-weight: 500;color:red;">No work details</h1></marquee>    
+        {% endif %}    
+               </div>
+  </body>
+<br><br><br><br><br><br>
+
+{% endblock %}

@@ -1,0 +1,97 @@
+{% extends 'Agency/AgencyHome.html' %}
+{% block content %}
+<head>
+	
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="static/css/montserrat-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="static/css/amt/amt.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  
+   
+</head>
+
+
+<body style="background-image:url('static/images/bg3.jpg');background-repeat: no-repeat;background-size: cover;">
+<div id="generic_price_table">   
+<section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    
+                    <div class="price-heading clearfix">
+                        <h1>Assign Client Amount</h1>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        {% if req %}
+        <div class="container">
+            <div class="row">
+            {% for i in req %}
+                <div class="col-md-4">
+                    <div class="generic_content clearfix">
+                        <div class="generic_head_price clearfix">
+                            <div class="generic_head_content clearfix">                      
+                                <div class="head_bg"></div>
+                                <div class="head">
+                                    <span>{{i.4}}</span>
+                                </div>
+                            </div>
+     
+                            <div class="generic_price_tag clearfix w-100 p-3">	
+                                <span class="price">
+                                    <span class="sign">{{i.17}}</span><br>
+                                    <span>{{i.2}}</span>
+                                    <!-- <span class="currency">99</span>
+                                    <span class="cent">.99</span>
+                                    <span class="month">/MON</span> -->
+                                </span>
+                            </div>
+                        </div>                            
+                        <div class="generic_feature_list">
+                        	<ul>
+                                
+                            	<li> No.of Labourer: <span>{{i.8}}</span></li>
+                                <li> Starting Date: <span>{{i.9}}</span></li>
+                                <li> Ending Date: <span>{{i.10}}</span></li>
+                                
+                                <!--<li><span>5</span> Accounts</li>
+                                <li><span>1</span> Host Domain</li>
+                                <li><span>24/7</span> Support</li>  -->
+                            </ul>
+                        </div>
+                        <div class="generic_price_btn clearfix">
+                        	<a class="" href="/UserAmount2?aid={{i.0}}">Total Payment</a>
+                            
+                        </div>
+
+                    </div>
+                        
+                </div>
+                
+                
+            {% endfor %}   
+            </div>	 
+        </div>
+
+        {% else %}
+        <marquee><h3>NO details </h3></marquee>
+        {% endif %}
+    </section>             
+	<!-- <footer>
+    	<a class="bottom_btn" href="https://webdevtrick.com">Webdevtrick</a>
+    </footer> -->
+</div>
+  
+  
+
+</body>
+
+
+{% endblock %}

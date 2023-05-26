@@ -1,0 +1,99 @@
+{% extends 'Agency/AgencyHome.html' %}
+{% block content %}
+<head>
+	
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="static/css/montserrat-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="static/css/PoliceReg/style.css"/>
+    <script type="text/javascript" src="policereg/js/jquery-2.1.4.min.js"></script>
+    <script src="policereg/js/jquery.vide.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+   
+</head>
+
+
+<body style="background-image:url('static/images/bg3.jpg');background-repeat: no-repeat;background-size: cover;">
+    <div data-vide-bg="video/patient">
+		<div class="center-container">
+			<h1 class="header-w3ls">Police Station Form</h1>
+			
+			<div class="content-top">
+				<div class="content-w3ls">
+					<div class="form-w3ls">
+						<form action="#" method="post">
+                            {% csrf_token %}
+							<div class="content-wthree1">
+								<div class="grid-agileits1">
+									<div class="form-control"> 
+										<label >Station Name<span>*</span></label>
+										<input type="text" id="name" name="name" placeholder="Name" title="Please enter your Full Name" required="">
+									</div>
+									<div class="form-control">	
+										<label>Email <span>*</span></label>
+										<input type="email" id="email" name="email" placeholder="Mail@example.com" title="Please enter a Valid Email Address" required="">
+									</div>
+                                    <div class="form-control">	
+										<label> Police Code<span>*</span></label>
+										<input type="text" id="email" name="policecode" placeholder="Police Code" title="Please enter a Valid Email Address" required="">
+									</div>
+                                    
+								</div>
+							</div>
+					</div>
+					<div class="form-w3ls-1">
+                        <div class="form-control">	
+                            <label>Password<span>*</span></label>
+                            <input type="password" id="email" name="passw" placeholder="Password" title="Please enter a Valid Email Address" required="">
+                        </div>
+                        <div class="form-control">	
+                            <label>Phone Number <span>*</span></label>
+                            
+							<input type="tel" name="phonenum" id="last_name" class="input-text" placeholder="Phone Number" required pattern="[0-9]{10}">
+                        </div>
+								<div class="form-control"> 
+									<label>Address <span>*</span></label>
+									<input type="text" id="name" name="address" placeholder="Address" title="Please enter your Address" required="">
+									<!-- <input type="text" id="name" name="name" placeholder="Line" title="Please enter your Line" required="">
+									<input type="text" id="name" name="name" placeholder="City" title="Please enter your City" required="">
+									<input type="text" id="name" name="name" placeholder="Zip code" title="Please enter your Zip code" required=""> -->
+								</div>
+								<div class="wthreesubmitaits">
+									<input type="submit" name="submit" value="Submit">
+								</div>
+						</form>
+							
+					</div>
+					<div class="clear"><strong class="mx-2" style="color:red">{{msg}}</strong> </div>
+				</div>
+				<div class="content-w3ls">
+					<div class="form-w3ls">
+							<div class="content-wthree2">
+								<div class="grid-w3layouts1">
+										
+								</div>
+								
+								<div class="clear"></div>
+							</div>
+					</div>
+					<div class="form-w3ls-1">
+						<div class="grid-w3layouts1">
+							
+						</div>		
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>	
+				
+		</div>
+	</div>
+
+</body>
+<br><br><br>
+
+{% endblock %}

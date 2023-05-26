@@ -1,0 +1,119 @@
+*{
+    margin:0;
+    padding:0;
+}
+.page-content{
+    /* background-color:#c3a1ae; */
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.card{
+    height:380px;
+    width:400px;
+    border-radius:15px;
+    background-color:#fefefe;
+    display:flex;
+    justify-content:center;
+    padding:50px 0px;
+    box-shadow: 23px 17px 64px -14px rgba(90,87,87,0.75);
+    cursor:pointer;
+}
+.image img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+
+.card-content{
+    width: 100%;
+    padding: 10px 34px;
+}
+
+.image{
+    position:relative;
+    display:flex;
+    justify-content:center;
+}
+
+.image::after{
+    content:'';
+    position:absolute;
+    height:17px;
+    width:17px;
+    border-radius:50%;
+    background-color:green;
+    border:3px solid #fff;
+    top:10px;
+    right:85px;
+}
+
+
+.text-center{
+    display:flex;
+    justify-content:center;
+}
+
+.stats{
+    display:flex;
+    justify-content:space-between;
+    margin-top:30px;
+}
+
+.stat1{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+
+.stat1 span:nth-child(1){
+    font-size:13px;
+    color:purple;
+    font-weight:800;
+}
+
+.stat1 span:nth-child(2){
+    font-size:13px;
+    color:#aaa;
+}
+
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    margin-top:30px;
+}
+
+.buttons button{
+    height:40px;
+    width:130px;
+    margin:0px 7px;
+    border:none;
+    border-radius:5px;
+    color:#fff;
+    font-size:15px;
+    cursor:pointer;
+}
+
+.buttons .follow{
+    background-color:#8f4af7;
+    transition:all 0.9s;
+}
+
+.buttons .message{
+    background-color:#f23c7e;
+     transition:all 0.9s;
+}
+
+.buttons .follow:hover{
+    background-color:#7521f5;
+}
+
+
+.buttons .message:hover{
+    background-color:#f31263;
+}

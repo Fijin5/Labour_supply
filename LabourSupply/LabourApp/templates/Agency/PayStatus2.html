@@ -1,0 +1,152 @@
+{% extends 'Agency/AgencyHome.html' %}
+{% block content %}
+
+<head>
+	
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="static/css/montserrat-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="static/css/table/table6.css"/>
+ 
+    <link rel="stylesheet" href="static/css/bill/invoice.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  
+   
+</head>
+<body style="background-image:url('static/images/bg3.jpg');background-repeat: no-repeat;background-size: cover;" >
+  
+<br><br><br><br><br><br><br>
+{% if payuser %}
+<div class="container">
+    <div class="row gutters">
+    	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    		<div class="card">
+    			<div class="card-body p-0">
+    				<div class="invoice-container">
+    					<div class="invoice-header">
+    
+    						<!-- Row start -->
+    						<!-- <div class="row gutters">
+    							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+    								<div class="custom-actions-btns mb-5">
+    									<a href="#" class="btn btn-primary">
+    										<i class="icon-download"></i> Download
+    									</a>
+    									<a href="#" class="btn btn-secondary">
+    										<i class="icon-printer"></i> Print
+    									</a>
+    								</div>
+    							</div>
+    						</div> -->
+    						<!-- Row end -->
+    
+    						<!-- Row start -->
+    						<div class="row gutters">
+    							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+    								<a href="#" class="invoice-logo">
+    									{{agen.1}}
+    								</a>
+    							</div>
+    							<div class="col-lg-6 col-md-6 col-sm-6">
+    								<address class="text-right">
+    									{{agen.5}}
+                                        
+    								</address>
+    							</div>
+    						</div>
+    						<!-- Row end -->
+    
+    						<!-- Row start -->
+    						<div class="row gutters">
+    							<div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+    								<div class="invoice-details">
+    									<address>
+    										{{user.1}},<br>
+                                            {{user.2}}
+                                          
+    									</address>
+    								</div>
+    							</div>
+    							<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+    								<div class="invoice-details">
+    									<div class="invoice-num">
+    										<div>{{user.4}}</div>
+    										<div>{{user.3}}</div>
+    									</div>
+    								</div>													
+    							</div>
+    						</div>
+    						<!-- Row end -->
+    
+    					</div>
+    
+    					<div class="invoice-body">
+    
+    						<!-- Row start -->
+    						<div class="row gutters">
+    							<div class="col-lg-12 col-md-12 col-sm-12">
+    								<div class="table-responsive">
+    									<table class="table custom-table m-0">
+    										<thead>
+    											<tr>
+    												<th>Payment Date</th>
+    												<th>Requirement</th>
+    												<th>No. of Workers</th>
+    												<th>No of days</th>
+                                                    <th>Amount per Day</th>
+                                                    <th>Total</th>
+    											</tr>
+    										</thead>
+                                            {% for i in payuser %}
+    										<tbody>
+    											<tr>
+    												<td>
+    													{{i.1}}
+    													<p class="m-0 text-muted">
+    														
+    													</p>
+    												</td>
+    												<td>{{i.3}}</td>
+    												<td>{{i.4}}</td>
+    												<td>{{i.5}}</td>
+                                                    <td>700</td>
+                                                    <td>{{i.6}}</td>
+
+    											</tr>
+    											
+    											
+    										</tbody>
+                                            {% endfor %}
+    									</table>
+    								</div>
+    							</div>
+    						</div>
+    						<!-- Row end -->
+    
+    					</div>
+    
+    					<div class="invoice-footer">
+    						
+    					</div>
+    
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+</div>
+{% else %}
+        <marquee behavior="scroll" direction="right" scrollamount="5"><h1 style="font-size:20px;font-weight: 500;color:red;">No Payment details</h1></marquee>    
+        {% endif %}   
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div style="font-size:xx-large;margin-left:20px;">
+	<a href="{{request.META.HTTP_REFERER}}"><i  class="bi bi-arrow-left-square-fill"></i></a>
+	</div>
+</body>
+
+
+{% endblock %}
